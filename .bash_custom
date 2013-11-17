@@ -1,0 +1,19 @@
+##### Variables #####
+export EDITOR=vim
+
+##### Aliases #####
+alias rgrep='grep -n -r'
+alias ll='ls -la'
+
+##### PATH for cygwin (always starts with path separator ":") #####
+PATH+=":/cygdrive/s/applications/apache-ant-1.9.2/bin"
+
+##### git integration #####
+source ~/.git-status.sh
+export GITPATHFILTER='^/cygdrive/s/'
+
+##### Prompt #####
+export PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]$(__git_status)\n\$ '
+
+##### Jump #####
+source ~/.jump.sh
