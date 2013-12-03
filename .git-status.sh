@@ -55,7 +55,7 @@ function __git_status {
                         echo "$echoresult" >> "$GITCACHEPATH/$gitname"
                 fi
 
-                echo -n " ["
+                echo -n "["
 
 		if [[ "$gitupdate" == 1 ]]; then
 			echo -n "'"

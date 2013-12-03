@@ -1,0 +1,75 @@
+##### Variables #####
+export EDITOR=vim
+
+##### Aliases #####
+alias rgrep='grep --color=auto -n -r'
+alias ll='ls --color=auto -la'
+
+##### PATH (always starts with path separator ":") #####
+export PATH+=":$HOME/bin"
+
+##### Git integration #####
+source ~/.git-status.sh
+
+##### Jump #####
+source ~/.jump.sh
+
+##### Prompt #####
+__prompt_command() {
+	# Needs to be always the first line.
+	local exitVar="$?" 
+
+	local userHost='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h\[\e[0m\]'
+	local lastExit=$(if [ "$exitVar" = 0 ]; then echo -e "\033[1;32mOK\033[0m"; else echo -e "\033[1;31mE$exitVar\033[0m"; fi)
+	local curPath='\[\e[33m\]\w\[\e[0m\]'
+	local gitStatus=$(__git_status)
+
+	PS1="$userHost $lastExit $curPath $gitStatus\n$ "
+}
+
+export PROMPT_COMMAND=__prompt_command
+
+##### Bash completion #####
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+	source /etc/bash_completion
+fi
+
+##### History #####
+# Ignore duplicates and commands with leading space in history.
+export HISTCONTROL=ignoredups:ignorespace
+# Max lines of history in memory (per session).
+export HISTSIZE=5000
+# Max lines of history in $HISTFILE (per user, $HISTFILE: default .bash_history).
+export HISTFILESIZE=50000
+
+##### Shell options #####
+# Enable an option: shopt -s OPT
+# Disable an option: shopt -u OPT
+
+# Set important options that should be enabled by default.
+shopt -s expand_aliases hostcomplete
+
+# Appends the history list to $HISTFILE rather than overwriting the file.
+shopt -s histappend
+
+# Saves all lines of a multiple-line command in the same history entry.
+shopt -s cmdhist
+
+# Corrects minor errors in the spelling of a directory component in a cd command.
+shopt -s cdspell
+
+# Attempts spelling correction on directory names during word completion.
+shopt -s dirspell
+
+# Matches filenames in a case-insensitive fashion when performing filename expansion.
+shopt -s nocaseglob
+
+# Includes filenames beginning with a ‘.’ in the results of filename expansion.
+shopt -s dotglob
+
+# Enables extended pattern matching features for filename expansion.
+# See: http://www.gnu.org/software/bash/manual/html_node/Pattern-Matching.html#Pattern-Matching
+shopt -s extglob
+
+# Checks the window size after each command and, if necessary, updates the values of LINES and COLUMNS.
+shopt -s checkwinsize 

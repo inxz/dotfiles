@@ -1,19 +1,12 @@
-##### Variables #####
-export EDITOR=vim
+##### Include .bash_default #####
+source .bash_default
 
 ##### Aliases #####
-alias rgrep='grep -n -r'
-alias ll='ls -la'
+# example: alias command='command -options'
 
 ##### PATH (always starts with path separator ":") #####
-PATH+=":$HOME/bin"
+# example: export PATH+=":/my/path"
 
-##### git integration #####
-source ~/.git-status.sh
-export GITPATHFILTER=''
+##### Git integration #####
+# example: export GITPATHFILTER="/my/path/to/git"
 
-##### Prompt #####
-export PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]$(__git_status)\n\$ '
-
-##### Jump #####
-source ~/.jump.sh
