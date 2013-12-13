@@ -1,5 +1,5 @@
 ##### Include .bash_default #####
-source .bash_default
+source ~/.bash_default
 
 ##### Aliases #####
 # example: alias command='command -options'
