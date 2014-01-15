@@ -10,7 +10,7 @@ set statusline+=%-3.3n\                      " buffer number
 set statusline+=%f\                          " file name
 set statusline+=%h%m%r%w                     " flags
 set statusline+=\[%{strlen(&ft)?&ft:'none'}, " filetype
-set statusline+=%{&encoding},                " encoding
+set statusline+=%{&fenc!=''?&fenc:&enc},     " encoding
 set statusline+=%{&fileformat}]              " file format
 " status line right
 set statusline+=%=                           " right align
