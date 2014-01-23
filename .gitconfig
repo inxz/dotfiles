@@ -10,6 +10,7 @@
 	vimdiff = difftool -t vimdiff
 	co = checkout
 	ci = commit
+	root = rev-parse --show-toplevel
 [color]
 	branch = auto
 	diff = auto
