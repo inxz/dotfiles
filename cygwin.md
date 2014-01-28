@@ -36,7 +36,7 @@ Tmux cygwin build:
 Required packages:
 
 <pre>
-automake, gcc-core, git, pkg-config, make, ncurses, libncurses-devel, libevent, libevent-devel
+automake, gcc-core, git, pkg-config, make, autoconf, ncurses, libncurses-devel, libevent, libevent-devel
 </pre>
 
 Build:
@@ -64,3 +64,31 @@ Option in ~/.tmux.conf:
 <pre>
 set -g default-terminal "screen-256color"
 </pre>
+
+Git cygwin build:
+--------------
+
+Required packages:
+
+<pre>
+automake, gcc-core, pkg-config, make, autoconf, curl, libcurl-devel, libiconv, libiconv2, gettext, gettext-devel, perl, python, tcl
+</pre>
+
+Build:
+
+<pre>
+cd ~
+git clone https://github.com/git/git.git
+# git checkout VERSION (optional)
+make configure
+./configure
+make && make install
+</pre>
+
+Install subtree feature:
+
+<pre>
+cd contrib/subtree
+make && make install
+</pre>
+
