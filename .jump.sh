@@ -6,6 +6,10 @@ function jump {
         cd -P $MARKPATH/$1 2>/dev/null || echo "No such mark: $1"
 }
 
+function j {
+	jump $@
+}
+
 function mark {
         mkdir -p $MARKPATH; ln -s $(pwd) $MARKPATH/$1
 }
@@ -26,6 +30,7 @@ _jump() {
                 result+="/"
         fi
 
+
         COMPREPLY=( $(echo "$result" | sed -e "s#$MARKPATH/##") )
 }
 
@@ -36,6 +41,6 @@ _unmark() {
         return 0
 }
 
-complete -A file -o nospace -F _jump jump
+complete -o nospace -o filenames -F _jump jump j
 complete -F _unmark unmark
 
