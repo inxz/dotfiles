@@ -12,7 +12,7 @@ Recommend packages:
 Default:
 
 <pre>
-bc, curl, libcurl4, vim, rsync, openssh, openssl, dos2unix, wget, bzip2, p7zip, zip, unzip, util-linux, procps, ncurses, keychain, mc, pwgen, libiconv, libiconv2
+bc, curl, libcurl4, vim, rsync, openssh, openssl, dos2unix, wget, bzip2, p7zip, zip, unzip, util-linux, inetutils, procps, ncurses, keychain, mc, pwgen, libiconv, libiconv2
 </pre>
 
 Source control management:
