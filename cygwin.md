@@ -18,7 +18,7 @@ bc, curl, libcurl4, vim, rsync, openssh, openssl, dos2unix, wget, bzip2, p7zip, 
 Source control management:
 
 <pre>
-subversion, git, git-completion, git-svn
+subversion, git, git-completion, git-svn, subversion-perl
 </pre>
 
 Cygwin user and group:
