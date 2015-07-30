@@ -1,8 +1,13 @@
-[core]
-	autocrlf = false
 [user]
 	name = NAME
-	email = EMAIL
+	email = MAIL
+[core]
+	autocrlf = false
+	fileMode = false
+[push]
+	default = current
+[branch]
+	autosetuprebase = always
 [alias]
 	st = status -sb
 	lg = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' -10
@@ -29,6 +34,3 @@
 	added = yellow
 	changed = green
 	untracked = cyan
-[push]
-	default = current
-
