@@ -30,3 +30,4 @@ set termencoding=utf-8
 colorscheme mustang
 hi CursorLine cterm=none " Overwrite cursor line style
 set cursorline
+set t_Co=256

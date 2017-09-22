@@ -12,21 +12,33 @@ alias fgrep='grep -F'
 ##### PATH (always starts with path separator ":") #####
 export PATH+=":$HOME/bin"
 
-##### Git integration #####
-source ~/.git-status.sh
-
 ##### Jump #####
-source ~/.jump.sh
+if [ -f ~/.jump.sh ]; then
+	source ~/.jump.sh
+fi
+
+##### Git integration #####
+# example: export GITPATHFILTER="/my/path/to/git"
+
+function _gitpy() {
+	if [[ -f ~/.gitstatus.py && -d ~/.gitcache ]]; then
+		~/.gitstatus.py
+	fi
+}
 
 ##### Prompt #####
 __prompt_command() {
 	# Needs to be always the first line.
-	local exitVar="$?" 
+	local exitVar="$?"
 
 	local userHost='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h\[\e[0m\]'
 	local lastExit=$(if [ "$exitVar" = 0 ]; then echo -e "\033[1;32mOK\033[0m"; else echo -e "\033[1;31mE$exitVar\033[0m"; fi)
 	local curPath='\[\e[33m\]\w\[\e[0m\]'
-	local gitStatus=$(__git_status)
+	local gitStatus=$(_gitpy)
+
+	if [[ -n "$gitStatus" ]]; then
+		gitStatus="{$gitStatus}"
+	fi
 
 	PS1="$userHost $lastExit $curPath $gitStatus\n$ "
 }
