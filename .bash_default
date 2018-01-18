@@ -54,9 +54,13 @@ fi
 # Ignore duplicates and commands with leading space in history.
 export HISTCONTROL=ignoredups:ignorespace
 # Max lines of history in memory (per session).
-export HISTSIZE=5000
+export HISTSIZE=9999
 # Max lines of history in $HISTFILE (per user, $HISTFILE: default .bash_history).
-export HISTFILESIZE=50000
+export HISTFILESIZE=9999999
+# The name of the file in which command history is saved.
+# Do not use the default name, because otherwise the (very low) default values will
+# truncate the .bash_history if HISTFILESIZE is not set.
+export HISTFILE=".bash_history_my"
 
 ##### Shell options #####
 # Enable an option: shopt -s OPT
