@@ -60,7 +60,7 @@ export HISTFILESIZE=9999999
 # The name of the file in which command history is saved.
 # Do not use the default name, because otherwise the (very low) default values will
 # truncate the .bash_history if HISTFILESIZE is not set.
-export HISTFILE=".bash_history_my"
+export HISTFILE="~/.bash_history_my"
 
 ##### Shell options #####
 # Enable an option: shopt -s OPT
